@@ -6,4 +6,9 @@ object Expressions extends App{
 
   println(x)
 
+  println(2 * 34 + 1)
+
+  println(1 == 2)
+
+  println(!(1 == x))
 }
