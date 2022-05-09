@@ -15,4 +15,18 @@ object Functions extends App{
 
   println(parameterless())
   println(multiplier())
+
+  //basically uses recurssion over iterations
+  def repeatedFunc (a: String, n: Int): String ={
+    if ( n == 1) a
+    else a + repeatedFunc(a, n-1)
+  }
+  println(repeatedFunc("Hello",4))
+
+  def withoutReturnType() = "Hello"
+  println(withoutReturnType())
+
+  def funcWithSideEffects(myString: String):Unit = {
+    println(myString)
+  }
 }
