@@ -29,4 +29,12 @@ object Functions extends App{
   def funcWithSideEffects(myString: String):Unit = {
     println(myString)
   }
+
+  def someFunction (n: Int):Int = {
+    def innerFunc(a: Int, b:Int):Int = a+b
+
+    innerFunc(n, n-1)
+  }
+
+  println(someFunction(2))
 }
