@@ -18,5 +18,16 @@ object Recursion extends App{
   }
 
   println(someMoreRecursion(10))
+
+
+  def betterFactorial(n: Int):BigInt ={
+    def factHelper(x: Int, accumulator: BigInt):BigInt ={
+      if ( x <= 1) accumulator
+      else factHelper(x-1, x * accumulator)
+    }
+    factHelper(n,1)
+  }
+
+  println(betterFactorial(500))
 }
 //every call uses the stack frame
