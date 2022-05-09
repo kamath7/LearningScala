@@ -37,4 +37,33 @@ object Functions extends App{
   }
 
   println(someFunction(2))
+
+  def exerciseFunc(name:String, age: Int):String ={
+    return "Hello there, "+name+"! Your age is "+age
+  }
+  println(exerciseFunc("Adithya",69))
+
+  def factorial(n:Int):Long={
+    if (n <= 0) 1
+    else  n * factorial(n-1)
+  }
+
+  def fibonacci(n:Int):Int={
+    if(n <= 1) 1
+    else fibonacci(n-1) + fibonacci(n-2)
+  }
+
+  println(factorial(5))
+  println(fibonacci(4))
+
+  def primeChecker(n: Int): Boolean = {
+    def primeTill(t: Int): Boolean =
+      if (t <= 1) true
+      else n % t != 0 && primeTill(t - 1)
+
+    primeTill(n / 2)
+  }
+
+  println(primeChecker(19))
+
 }

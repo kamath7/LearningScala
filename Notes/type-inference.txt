@@ -1,0 +1,10 @@
+Compiler infers the type form the Right hand side
+
+val msg: String -> Compiler knows it is a String
+
+
+it also knows for val message = "Hello"
+
+BTS for the second type-
+
+Compiler analyses the implementations and figures out what the return type is 
