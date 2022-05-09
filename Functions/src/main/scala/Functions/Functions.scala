@@ -7,4 +7,12 @@ object Functions extends App{
   }
   println(myFunction("Adithya",26))
 
+  def multiplier(): Int ={
+    return 4
+  }
+
+  def parameterless():Int = 42
+
+  println(parameterless())
+  println(multiplier())
 }
