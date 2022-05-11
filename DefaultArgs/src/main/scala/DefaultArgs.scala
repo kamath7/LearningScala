@@ -10,4 +10,9 @@ object DefaultArgs extends App {
 
   print(factorial(11))
   print(factorial(10))
+
+  def savePic(format:String = "jpeg", width:Int, height:Int):Unit = println("\nPicture Saved!")
+//  savePic(1366,768) //fails. leading parameters cannot have default values
+  //solution to this - pass in every leading arg, can name the arguments as below
+  savePic(width = 1000, height = 2000)
 }
