@@ -10,4 +10,11 @@ object StringOps extends App{
   println(myStr.replace("Learning","Implementing"))
   println(myStr.toLowerCase())
   print(myStr.length)
+
+  val numString  = "45"
+  val stringToInt = numString.toInt
+
+  println('a' +: numString  :+ 'z') //appending and prepending
+  println(myStr.reverse)
+  println(myStr.take(2))
 }
