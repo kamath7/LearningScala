@@ -6,6 +6,8 @@ object OOPExercises extends App {
   print(novel1.authorAge)
   print(novel1.isWrittenBy(author1))
 
+  val myCounter = new Counter
+  myCounter.increment.increment.increment.getCounter
 
 }
 
@@ -19,4 +21,19 @@ class Novel(name: String, year: Int, author: Writer) {
   def isWrittenBy(author: Writer) = author == this.author
 
   def copy(newYear: Int): Novel = new Novel(name, newYear, author)
+}
+class Counter(val n : Int = 0){
+
+  def increment = new Counter(n + 1) //immutability
+  def decrement = new Counter(n-1)
+  def increment(factor:Int):Counter = {
+    if (factor <= 0) this
+    else increment.increment(n-1)
+  }
+  def decrement(factor:Int):Counter = {
+    if (factor <= 0) this
+    else decrement.decrement(n-1)
+  }
+  def getCounter = print(n)
+
 }
