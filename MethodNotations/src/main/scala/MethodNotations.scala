@@ -8,6 +8,7 @@ object MethodNotations extends App {
     def +(person:Person): String = s"${this.name} paired with ${person.name}"
     def unary_! : String = s"$name has passed away 🤣"
     def isStupid : Boolean = true
+    def apply(): String = s"Hello $name, how are you? I know you like $favMovie"
   }
   val alex = new Person("Alex","Dead")
   print(alex.likes("Dead"))
@@ -27,4 +28,8 @@ object MethodNotations extends App {
   //postfix notation
   println(alex.isStupid) //with no parameters you can subject to postfix
   println(alan isStupid)
+
+  //apply
+  println(alan.apply())
+  println(alan()) //equivalent to the above
 }
