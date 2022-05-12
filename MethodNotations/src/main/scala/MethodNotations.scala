@@ -1,3 +1,5 @@
+import scala.language.postfixOps
+
 object MethodNotations extends App {
 
   class Person(val name:String, favMovie: String){
@@ -5,6 +7,7 @@ object MethodNotations extends App {
     def dancingWith(person:Person): String = s"${this.name} hangs out with ${person.name}"
     def +(person:Person): String = s"${this.name} paired with ${person.name}"
     def unary_! : String = s"$name has passed away 🤣"
+    def isStupid : Boolean = true
   }
   val alex = new Person("Alex","Dead")
   print(alex.likes("Dead"))
@@ -20,4 +23,8 @@ object MethodNotations extends App {
   //unary_prefix only works with -, + , ~ and !
   println(!alan)
   println(alan.unary_!)
+
+  //postfix notation
+  println(alex.isStupid) //with no parameters you can subject to postfix
+  println(alan isStupid)
 }
