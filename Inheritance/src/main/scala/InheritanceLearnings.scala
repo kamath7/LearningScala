@@ -1,8 +1,8 @@
 object InheritanceLearnings extends App{
 
-  class Animal{
+ sealed class Animal{
     val creatureType = "wild"
-    def eat = print("Nom Nom chompy")
+     def eat = print("Nom Nom chompy") // prevents from overriding
   }
 
   class Dog extends  Animal{
@@ -48,3 +48,6 @@ class Adult (name:String, age:Int, idDetails: String) extends Person(name,age) /
 
 
 //single class inheritance
+//can use final to prevent overriding. if used for class it prevents extending.
+
+//cna use sealed. it only allows to inherit in this file but not other files
