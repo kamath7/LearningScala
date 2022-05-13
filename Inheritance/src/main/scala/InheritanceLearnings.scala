@@ -1,7 +1,8 @@
 object InheritanceLearnings extends App{
 
   class Animal{
-    protected  def eat = print("Nom Nom chompy")
+    val creatureType = "wild"
+    def eat = print("Nom Nom chompy")
   }
 
   class Dog extends  Animal{
@@ -13,13 +14,30 @@ object InheritanceLearnings extends App{
 
   //overriding
 
-  class Cat extends Animal {
+  class Cat (override val creatureType:String) extends Animal {
     override def eat = println("Licky licky")
   }
+
+  class Bird (val birdBreed:String) extends  Animal {
+    override  val creatureType = birdBreed
+
+    override def eat = {
+      super.eat
+      println("chirp chirp")
+    }
+  }
   val dog = new Dog
-  val cat = new Cat
+  val cat = new Cat("Domesticated")
+
+  val bird = new Bird("Peking Parrot")
+
+  print(bird.creatureType)
   dog.Crunch
   cat.eat
+  print(cat.creatureType)
+
+  val unknownAnimal:Animal = new Bird("Dragon")//polymorphism
+  unknownAnimal.eat //goes to dog's eat method instead of aniamls
 }
 class Person(name: String, age:Int) {
   //using aux constructors
