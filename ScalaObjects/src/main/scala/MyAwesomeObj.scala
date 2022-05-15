@@ -23,6 +23,7 @@ object MyAwesomeObj extends App{
   println(goat == messi) //false
   println(harry == maguire) //true
   val child = Person(goat, messi)
+  //Scala application -> scala object with def main(args:Array[String]):Unit
 }
 //scala doesn't have class level functionality. No STATIC. Equivalent is Object
 // Scala object - singleton instance
