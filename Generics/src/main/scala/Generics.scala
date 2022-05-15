@@ -37,4 +37,13 @@ object Generics extends App {
   //contravariant list
   class ContraVariantList[-A]
   val contraVariantList: ContraVariantList[Cat] = new ContraVariantList[Animal]
+
+  //bounded type
+  class Cage [A  <: Animal] (animal: A) //what this means is the class only accept subtypes of animal. (Cat, DOg) etc
+  val cage = new Cage(new Cat)
+
+  class randClass
+
+//  val cage = new Cage(new randClass) //won't work
+
 }
