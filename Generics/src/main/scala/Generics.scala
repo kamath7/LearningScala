@@ -1,7 +1,9 @@
 object Generics extends App {
 
-  class MyList[A] { //[A] defines generic type
+  class MyList[+A] { //[A] defines generic type
 
+    def add[B >: A](element: B): MyList[B] = ??? // if you add a bird to cat list it would then turn into a list of Animals
+    //B here is animal. B is the supertype of A
   }
 
   trait genericTrait[A] //also works for traits
@@ -45,5 +47,6 @@ object Generics extends App {
   class randClass
 
 //  val cage = new Cage(new randClass) //won't work
+
 
 }
