@@ -6,7 +6,7 @@ object InheriExercise extends App {
     def tail: MyList
     def isEmpty: Boolean
     def add(element: Int):MyList
-    protected def printElements:String
+    def printElements:String
 
     override def toString: String = "{"+printElements+"}"
 
@@ -21,6 +21,8 @@ object InheriExercise extends App {
     override def isEmpty: Boolean = true
 
     override def add(element: Int): MyList = new Cons(element, Empty)
+
+    def printElements:String = ""
   }
 
   class Cons(h: Int, t:MyList) extends MyList{
@@ -31,6 +33,10 @@ object InheriExercise extends App {
     override def isEmpty: Boolean = false
 
     override def add(element: Int): MyList = new Cons(element, this)
+
+    def printElements: String =
+      if (t.isEmpty) ""+h
+      else h + " "+ t.printElements
   }
 
 
@@ -38,5 +44,6 @@ object InheriExercise extends App {
     val list = new Cons(1, new Cons(3, Empty))
     print(list.tail.head)
     print(list.add(5).head)
+    print(list.toString)
 
 }
