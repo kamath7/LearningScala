@@ -10,6 +10,7 @@ object InheriExercise extends App {
 
     override def toString: String = "["+ printElements +"]"
 
+    //higher order funcs
     def map[B] (transformer: A => B):MyList[B]
     def flatMap[B] (transformer: A => MyList[B]):MyList[B]
     def filter(predicate: A => Boolean): MyList[A]

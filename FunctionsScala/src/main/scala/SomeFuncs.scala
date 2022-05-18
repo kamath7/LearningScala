@@ -19,6 +19,16 @@ object SomeFuncs extends App{
   }
 
   println(concatt("Hello","Kams"))
+  //curried functions
+  val specAdder: Function[Int, Function[Int, Int]] = new Function1[Int, Function1[Int, Int]]{
+    override def apply(v1: Int): Function1[Int, Int]  = new Function1[Int, Int]{
+      override def apply(v2: Int): Int = v1 + v2
+    }
+  }
+
+  val adder3 = specAdder(3)
+  print(adder3(4))
+  print(specAdder(68)(1))
 }
 trait  MyFunc [A,B] {
   def apply(element: A):B
