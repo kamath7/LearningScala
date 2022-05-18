@@ -18,4 +18,7 @@ object AnonFuncstions extends App{
     (str: String) => str.toInt
   }
 
+  val diInc: Int => Int = _ +1 // similar to x = x+1
+  val simplerAdder: (Int, Int) => Int = _ + _ //equi to a + b
+
 }
