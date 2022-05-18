@@ -4,4 +4,18 @@ object AnonFuncstions extends App{
    }
    val betteroudbler: Int => Int = x => x * 2 //anonymous func or lambda
 
+  val adder: (Int, Int) => Int = (a : Int, b : Int) => a+b
+
+  //no params
+  val noPams:() => Int = ()=> 3
+
+//  print(noPams) //won't work as expected
+  print(noPams())
+
+  //using curly bracces
+
+  val StringToInt = {
+    (str: String) => str.toInt
+  }
+
 }
