@@ -21,5 +21,15 @@ object HOFs extends App{
   val pl10 = nTimesNice(addOne, 10)
   println(pl10(1))
 
-  //c
+  //curried funcs
+  val superAdd = (x: Int) => (y:Int) => x+y
+  println(superAdd(3)(10))
+
+  def curryFormatter(c: String)(x:Double): String = c.format(x)
+
+  val standardForm: (Double => String) = curryFormatter("%4.2f")
+  val preciseForm: (Double => String) = curryFormatter("%10.8f")
+
+  println(standardForm(Math.PI))
+  println(preciseForm(Math.PI))
 }
