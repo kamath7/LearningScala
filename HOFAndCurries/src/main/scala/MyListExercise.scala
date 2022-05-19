@@ -29,6 +29,8 @@ object MyListExercise {
     def sort(compare: (A,A) => Int): MyList[A]
 
     def zipWith[B,C] (list: MyList[B], zip: (A, B) => C):MyList[C]
+
+    def fold[B] (start: B)(operator: (B,A) => B): B
   }
 
   case object Empty extends MyList[Nothing] {
@@ -59,6 +61,8 @@ object MyListExercise {
       if (!list.isEmpty) throw new RuntimeException("Lists do not have sam elength")
       else Empty
     }
+
+    override def fold[B](start: B)(operator: (B, Nothing) => B): B = start
   }
 
   case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
@@ -108,6 +112,10 @@ object MyListExercise {
       else new Cons(zip(h, list.head), t.zipWith(list.tail,zip))
     }
 
+    override def fold[B](start: B)(operator: (B, A) => B): B = {
+      val newStart = operator(start, h)
+      t.fold(newStart)(operator)
+    }
   }
 
 
