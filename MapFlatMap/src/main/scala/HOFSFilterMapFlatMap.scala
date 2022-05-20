@@ -14,6 +14,10 @@ object HOFSFilterMapFlatMap extends App{
   val toPair = (x: Int) => List(x, x+1)
   println(list.flatMap(toPair))
 
+  val numbersx = List(1,2,3,4)
+  val charsz = List('a','b','c','d','e')
 
+  val pairThem = numbersx.flatMap(n => charsz.map(c => ""+ c + n))
+  print(pairThem)
 
 }
