@@ -16,8 +16,31 @@ object HOFSFilterMapFlatMap extends App{
 
   val numbersx = List(1,2,3,4)
   val charsz = List('a','b','c','d','e')
+  val colorsz = List("Black", "Blue")
 
+  //iterations
   val pairThem = numbersx.flatMap(n => charsz.map(c => ""+ c + n))
   print(pairThem)
+
+  numbersx.foreach(print) //similar to map
+
+  //for comprehensions
+  val forComb = for{
+    n <- numbersx if n % 2 == 0
+    ch <- charsz
+    color <- colorsz
+  }yield "" + ch + n + " "+ color
+
+  print(forComb)
+
+  //similar to foreach
+  for {
+    n <- numbersx
+  } println(n)
+
+  //syntax overload
+
+  list.map(x => x * 2)
+
 
 }
