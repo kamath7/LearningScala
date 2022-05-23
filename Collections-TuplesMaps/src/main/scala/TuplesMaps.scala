@@ -31,4 +31,11 @@ object TuplesMaps extends App {
 
   //MapValues
   println(myContacts.view.mapValues(number => "+91" + number).toMap) // adds a 0 to the INT value whcih is Phone No
+
+  //Maps to List
+  println(myContacts.toList)
+  print(List(("John Doe" -> 12333, "Jane Doe" -> 128831)).toMap)
+
+  val myNames = List("Prakash","Bajaj","Maharaja","Simon")
+  println(myNames.groupBy(name => name.charAt(0)))
 }
