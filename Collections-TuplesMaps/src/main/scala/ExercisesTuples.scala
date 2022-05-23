@@ -62,7 +62,7 @@ object ExercisesTuples extends App {
   println(maxFriends(network))
 
   def noFriends(network: Map[String, Set[String]]): Int = {
-    network.view.filterKeys(k => network(k).isEmpty).size
+    network.count(pair => pair._2.isEmpty)
   }
 
   println(noFriends(test1))
