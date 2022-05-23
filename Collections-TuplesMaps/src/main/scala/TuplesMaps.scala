@@ -19,4 +19,8 @@ object TuplesMaps extends App {
   println(myContacts.contains("Andy"))
   println(myContacts("Lalle")) //exception generated. To avoid use withdefaultValue
 
+  //pairing
+  val newContact = "Pam" -> 8829100
+  val newContacts = myContacts + newContact //maps are immutable hence new contacts
+  println(newContacts)
 }
