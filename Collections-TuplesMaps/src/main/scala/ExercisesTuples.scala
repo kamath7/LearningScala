@@ -40,4 +40,17 @@ object ExercisesTuples extends App{
 
  println(unfriend(friend(network, "Janes","Janus"), "Janes", "Janus"))
  print(remove(friend(network, "Janes","Janus"), "Janes"))
+
+ val people = add(add(add(empty, "Luke"), "Darth"), "Kylo")
+ val lukeDarth = friend(people, "Luke","Darth")
+ val test1 = friend(people, "Luke", "Kylo")
+
+ println(test1)
+
+ def noOfFriends (network: Map[String, Set[String]], person:String): Int = {
+   if (!network.contains(person)) 0
+   else (network(person).size)
+ }
+
+
 }
