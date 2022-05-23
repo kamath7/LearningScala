@@ -23,4 +23,9 @@ object TuplesMaps extends App {
   val newContact = "Pam" -> 8829100
   val newContacts = myContacts + newContact //maps are immutable hence new contacts
   println(newContacts)
+
+  //map, filter
+
+  println(myContacts.map(pair => pair._1.toLowerCase -> pair._2))
+  println(myContacts.view.filterKeys(x => x.startsWith("M")).toMap) //contacts only with M
 }
