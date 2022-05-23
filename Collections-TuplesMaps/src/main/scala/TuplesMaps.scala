@@ -13,7 +13,10 @@ object TuplesMaps extends App {
   //Maps - keys -> Values
   val myMap: Map[String, Int] = Map()//string is key , int - value
 
-  val myContacts = Map(("Andy",888291), ("Robert California",2991002), "Michael Scott"->7812992) //michael scott one is similar but synctatic sugar
+  val myContacts = Map(("Andy",888291), ("Robert California",2991002), "Michael Scott"->7812992).withDefaultValue(-1) //michael scott one is similar but synctatic sugar
   println(myContacts)
+
+  println(myContacts.contains("Andy"))
+  println(myContacts("Lalle")) //exception generated. To avoid use withdefaultValue
 
 }
