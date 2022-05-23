@@ -1,5 +1,7 @@
 import TuplesMaps.myContacts
 
+import scala.annotation.tailrec
+
 object ExercisesTuples extends App {
 
   val someContacts = Map(("Jim" -> 1234), ("Jim" -> 9000))
@@ -66,4 +68,23 @@ object ExercisesTuples extends App {
   }
 
   println(noFriends(test1))
+
+
+  def socialConnection(network: Map[String, Set[String]], a: String, b: String): Boolean = {
+    @tailrec
+    def bfs(target: String, consideredPeople: Set[String], discoveredPeople: Set[String]): Boolean = {
+      //breadth-first-search
+        if (discoveredPeople.isEmpty) false
+        else {
+          val person = discoveredPeople.head
+          if (person == target) true
+          else if(consideredPeople.contains(person)) bfs(target, consideredPeople, discoveredPeople.tail)
+          else bfs(target, consideredPeople + person, discoveredPeople.tail ++ network(person))
+        }
+    }
+
+    bfs(b, Set(), network(a) + a)
+  }
+  println(socialConnection(test1, "Kylo", "Luke"))
+  println(socialConnection(network, "Janes", "Janus"))
 }
