@@ -28,4 +28,7 @@ object TuplesMaps extends App {
 
   println(myContacts.map(pair => pair._1.toLowerCase -> pair._2))
   println(myContacts.view.filterKeys(x => x.startsWith("M")).toMap) //contacts only with M
+
+  //MapValues
+  println(myContacts.view.mapValues(number => "+91" + number).toMap) // adds a 0 to the INT value whcih is Phone No
 }
