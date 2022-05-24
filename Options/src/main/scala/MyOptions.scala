@@ -9,4 +9,10 @@ object MyOptions extends App {
 
   //options were due to unsafe apis
 
+  def unsafeOpts(): String = null
+  // val res = Some(null) -> Unsafe
+
+  val res = Option(unsafeOpts())
+  print(res)
+
 }
