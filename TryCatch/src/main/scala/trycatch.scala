@@ -27,5 +27,11 @@ object trycatch extends  App {
   def betterBackUpMethod(): Try[String] = Success("Success!!")
   val betterFallback = betterUnsafeMethod() orElse betterBackUpMethod()
 
+  //map, filter and flatMap
+
+  println(success.map(_ * 2))
+  println(success.flatMap(x => Success(x * 10)))
+  println(success.filter(_ > 10))
+
 
 }
