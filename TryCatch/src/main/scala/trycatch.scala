@@ -69,4 +69,9 @@ object trycatch extends App {
   possibleHtml.foreach(renderPage)
 
   httpService.getSafeConnection(hostName, port).flatMap(connection => connection.getSafe("/home")).foreach(renderPage)
+
+  for {
+    connection <- httpService.getSafeConnection(hostName, port)
+    html <- connection.getSafe("/home")
+  } renderPage(html)
 }
