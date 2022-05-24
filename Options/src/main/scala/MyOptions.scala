@@ -25,4 +25,14 @@ object MyOptions extends App {
   def betterBackup(): Option[String] = Some("Valid Result")
 
   val betterRes = betterUnsafe() orElse betterBackup()
+
+  //Option functions
+  println(myfirstOption.isEmpty)
+  println(myfirstOption.get) //unsafe - not meant for use
+
+  //map, flatmap, filter
+
+  println(myfirstOption.map(_ * 69))
+  println(myfirstOption.filter(x => x > 10))
+  println(myfirstOption.flatMap(x => Option(x * 10)))
 }
