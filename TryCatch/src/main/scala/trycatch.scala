@@ -12,4 +12,20 @@ object trycatch extends  App {
   val potFailure = Try(unsafeMethod())
   println(potFailure)
 
+  val anotherOne = Try{
+
+  }
+
+  println(potFailure.isSuccess)
+
+  //orElse
+  def backupMethod () : String = "A valid result"
+  val fallback = Try(unsafeMethod()).orElse(Try(backupMethod()))
+  println(fallback) //trycatch- promises similar
+
+  def betterUnsafeMethod(): Try[String] = Failure(new RuntimeException)
+  def betterBackUpMethod(): Try[String] = Success("Success!!")
+  val betterFallback = betterUnsafeMethod() orElse betterBackUpMethod()
+
+
 }
