@@ -1,8 +1,8 @@
 import scala.util.{Failure, Random, Success, Try}
 
-object trycatch extends  App {
+object trycatch extends App {
 
-  val success  = Success(3)
+  val success = Success(3)
   val aFailure = Failure(new RuntimeException("Fail!"))
   println(success)
   println(aFailure)
@@ -12,19 +12,22 @@ object trycatch extends  App {
   val potFailure = Try(unsafeMethod())
   println(potFailure)
 
-  val anotherOne = Try{
+  val anotherOne = Try {
 
   }
 
   println(potFailure.isSuccess)
 
   //orElse
-  def backupMethod () : String = "A valid result"
+  def backupMethod(): String = "A valid result"
+
   val fallback = Try(unsafeMethod()).orElse(Try(backupMethod()))
   println(fallback) //trycatch- promises similar
 
   def betterUnsafeMethod(): Try[String] = Failure(new RuntimeException)
+
   def betterBackUpMethod(): Try[String] = Success("Success!!")
+
   val betterFallback = betterUnsafeMethod() orElse betterBackUpMethod()
 
   //map, filter and flatMap
@@ -38,14 +41,16 @@ object trycatch extends  App {
   val hostName = "micasa"
   val port = "8080"
 
-  def renderPage (page: String) = println(page)
+  def renderPage(page: String) = println(page)
 
   class Connection {
-    def get (url: String): String = {
+    def get(url: String): String = {
       val random = new Random(System.nanoTime())
       if (random.nextBoolean()) "Some HTML content"
       else throw new RuntimeException("Connection gone")
     }
+
+    def getSafe(url: String): Try[String] = Try(get(url))
   }
 
   object httpService {
@@ -55,8 +60,13 @@ object trycatch extends  App {
       if (random.nextBoolean()) new Connection
       else throw new RuntimeException("PORT in use")
     }
+
+    def getSafeConnection(host: String, port: String): Try[Connection] = Try(getConnection(host, port))
   }
 
+  val possibleConnect = httpService.getSafeConnection(hostName, port)
+  val possibleHtml = possibleConnect.flatMap(connection => connection.getSafe("/home"))
+  possibleHtml.foreach(renderPage)
 
-
+  httpService.getSafeConnection(hostName, port).flatMap(connection => connection.getSafe("/home")).foreach(renderPage)
 }
