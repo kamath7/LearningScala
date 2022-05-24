@@ -47,9 +47,11 @@ object MyOptions extends App {
   class Connection {
     def connect = "Connected!!"
   }
-  object Connection{
+
+  object Connection {
     var random = new Random(System.nanoTime())
-    def apply(host:String, port: String): Option[Connection] = {
+
+    def apply(host: String, port: String): Option[Connection] = {
       if (random.nextBoolean()) Some(new Connection)
       else None
     }
@@ -58,7 +60,18 @@ object MyOptions extends App {
   val host = config.get("host")
   val port = config.get("port")
   val connection = host.flatMap(h => port.flatMap(p => Connection.apply(h, p)))
-  val connectionStatus = connection.map (c => c.connect)
+  val connectionStatus = connection.map(c => c.connect)
   println(connectionStatus)
   connectionStatus.foreach(println)
+
+//  config.get("host").flatMap(host => config.get("port").flatMap(port => Connection(host, port)).map(connection => connection.connect)).foreach(println()) -> chained solution for the above
+
+//for-comprehehnsions
+
+val connectionStatus1 = for {
+  host <- config.get("host")
+  port <- config.get("port")
+  connection <- Connection(host, port)
+}yield connection.connect
+
 }
