@@ -22,5 +22,18 @@ object AllPatterns extends App {
     case something => s"found $something"
   }
 
+  //using tuples
+
+  val typle = (1, 2)
+  val matchTuple = typle match {
+    case (1,1)  =>
+    case (something, 2) => s"found $something"
+  }
+
+  //nested tuples
+  val nestTuple = (1,(2,3))
+  val matchNestTuple = nestTuple match {
+    case (_, (2, v)) =>
+  }//patten matches can be nested
 
 }
