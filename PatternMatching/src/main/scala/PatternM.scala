@@ -14,6 +14,13 @@ object PatternM extends App{
 
   println(s" $x -> $descriptor")
 
+  case class Person (name: String, age: Int)
+  val jim = Person("Jim", 23)
 
+  val greeting = jim match {
+    case Person(n,a) => s"My name is $n and I'm $a years old"
 
+    case _ => "This is John Doe and I'm 69 years old"
+  }
+  println(greeting)
 }
