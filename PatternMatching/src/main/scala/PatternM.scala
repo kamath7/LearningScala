@@ -49,4 +49,24 @@ object PatternM extends App{
   case class Sum(e1: expr, e2: expr) extends expr
   case class Prod(e1: expr, e2: expr) extends expr
 
+  def show(e: expr): String = e match {
+    case Number(n) => s"$n"
+    case Sum(e1, e2) => show(e1) + " + " + show(e2)
+    case Prod(e1, e2) => {
+      def maybeShowPara(exp: expr) = {
+        exp match {
+          case Prod(_ , _) => show(exp)
+          case Number(_) => show(exp)
+          case _ => "{" + show(exp) + "}"
+        }
+
+
+      }
+      maybeShowPara(e1) + " * " + maybeShowPara(e2)
+    }
+  }
+
+  println(show(Sum(Number(2), Number(67))))
+  println(show(Prod(Sum(Number(2), Number(67)), Number(30))))
+  println(show(Sum(Number(2), Number(67))))
 }
