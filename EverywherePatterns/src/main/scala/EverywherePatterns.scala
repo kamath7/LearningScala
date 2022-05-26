@@ -19,5 +19,7 @@ object EverywherePatterns extends App {
     (first, second) <- tuples
   } yield first + second
 
-
+  val tuple = (1,2,3)
+  val (a,b,c) = tuple
+  println(s"$a, $b, $c")
 }
