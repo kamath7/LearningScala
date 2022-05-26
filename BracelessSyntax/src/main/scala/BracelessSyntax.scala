@@ -75,6 +75,12 @@ object BracelessSyntax extends App {
 
   end Animal1 //use for code with multiple lines
 
+  //Anonymous class
+  val specAnimal = new Animal:
+    override def eat(): Unit = super.eat()
+
+
+
 }
 
 
