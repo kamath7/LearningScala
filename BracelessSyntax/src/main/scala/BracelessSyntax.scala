@@ -28,12 +28,32 @@ object BracelessSyntax extends App {
     n <- List(1,2,3)
     s <- List("awesome","twosome")
   }yield s"$n = $s"
+
+  //braceless
+  val forExpr3 =
+    for
+      n <- List(1,2,3)
+      s <- List("awesome", "twosome")
+    yield s"$n $s"
+
+  //pattern matching
+  val lalle1 = 69
+  val pattMatch = lalle1 match {
+    case 1 => "one"
+    case 2 => "deus"
+    case _ => "something else"
+  }
+
+  val pattMatch1 =
+    lalle1 match
+    case 1 => "one"
+    case 2 => "deus"
+    case _ => "something else"
+
+
+
+
 }
 
-//braceless
-val forExpr3 =
-  for
-    n <- List(1,2,3)
-    s <- List("awesome", "twosome")
-  yield s"$n $s"
+
 
