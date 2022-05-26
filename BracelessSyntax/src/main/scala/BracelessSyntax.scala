@@ -50,8 +50,19 @@ object BracelessSyntax extends App {
     case 2 => "deus"
     case _ => "something else"
 
+  //braceless methods
+  def showMeTheMeaning(arg: Int): Int = {
+    val partialRes = 40
+    partialRes + 2
+  }
+  println(showMeTheMeaning(4))
+
+  def showMeTheMeaning1(arg: Int): Int =
+    val partialRes = 40
+    partialRes + 2
 
 
+  println(showMeTheMeaning1(4))
 
 }
 
