@@ -14,4 +14,12 @@ object BracelessSyntax extends App {
     else
       "not awesome"
 
+  val ifExpr4 =
+    if 2 > 3 then
+      val res = "awesome"
+      res
+    else
+      val res = "not awesome"
+      res
+
 }
