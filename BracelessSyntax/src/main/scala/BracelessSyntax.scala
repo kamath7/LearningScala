@@ -64,6 +64,15 @@ object BracelessSyntax extends App {
 
   println(showMeTheMeaning1(4))
 
+  //classes (applicable to traits, enums, objects etc)
+  class Animal {
+    def eat(): Unit = println("Currently chomping!")
+  }
+
+  class Animal1:
+    def eat(): Unit = println("Currently chomping!")
+    def run(): Unit = println("Currently running!")
+
 }
 
 
