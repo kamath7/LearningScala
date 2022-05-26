@@ -22,4 +22,18 @@ object BracelessSyntax extends App {
       val res = "not awesome"
       res
 
+  val ifExpr5 = if 2 > 3 then "awesome" else "not awesome"
+
+  val forExpr1 = for {
+    n <- List(1,2,3)
+    s <- List("awesome","twosome")
+  }yield s"$n = $s"
 }
+
+//braceless
+val forExpr3 =
+  for
+    n <- List(1,2,3)
+    s <- List("awesome", "twosome")
+  yield s"$n $s"
+
