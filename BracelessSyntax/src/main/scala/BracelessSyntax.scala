@@ -73,6 +73,8 @@ object BracelessSyntax extends App {
     def eat(): Unit = println("Currently chomping!")
     def run(): Unit = println("Currently running!")
 
+  end Animal1 //use for code with multiple lines
+
 }
 
 
